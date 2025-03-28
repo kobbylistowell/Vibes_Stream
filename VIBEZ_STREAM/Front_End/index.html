@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vibez Stream</title>
+    <link rel="icon" type="image/png" href="img/favi icon.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"> 
+</head>
+<body>
+<header> 
+
+<!---------------------Header Area (PlayList)-------------------------------------------------->
+
+<div class="slideshow-container">
+    <div class="slide active" style="background-image: url('img/s5.jpg');"></div>
+    <div class="slide" style="background-image: url('img/s1.jpg');"></div>
+    <div class="slide" style="background-image: url('img/s2.jpg');"></div>
+    <div class="slide" style="background-image: url('img/s3.jpg');"></div>
+    <div class="slide" style="background-image: url('img/s4.jpg');"></div>
+</div>
+
+    <div class="menu_side">
+      <div class="logo">
+         <h1>Vibez Stream</h1>
+      </div>
+
+        <div class="playlist">
+            <h4 class="active"><span></span><i class="bi bi-music-note-beamed"></i>All Songs</h4>
+            <input type="file" id="uploadInput" accept="audio/*" multiple style="display: none;">
+        
+            <!-- Upload Button -->
+            <button id="uploadBtn" class="btn btn-primary">Add Songs</button>
+            <!-- <h4 id="createPlaylistBtn"><span></span>Create Playlist</h4> -->
+
+
+
+
+          
+        <!-- <h4><span></span><i class="bi bi-music-note-beamed"></i>Recommended</h4> -->
+    
+        <!-- Hidden File Input -->
+       
+    
+        <div class="menu_song" id="playlist">
+            <li class="songItem">
+                <span>01</span>
+                <img src="img/vibes stream.png" alt="rodwave">
+                <h5>Song Title
+                    <div class="subtitle">Artist Name</div>
+                </h5>
+                <i class="bi playListPlay bi-play-circle-fill" id="1"></i>
+        
+                <!-- Delete Button -->
+                <i class="bi bi-trash-fill delete-song" id="delete-1"></i>
+            </li>
+        </div>
+
+        
+       <!----------------------------Playlist form------------------------>
+            <!-- Create Playlist Form (Always Visible) -->
+            <div id="playlistForm" class="playlist-form">
+                <h3>Create New Playlist</h3>
+                <input type="text" id="playlistName" placeholder="Enter Playlist Name">
+                <button id="submitPlaylist">Create</button>
+            </div>
+
+
+
+            
+        </div>
+
+      </div>
+
+    </div>
+    </div>
+
+    <div class="song_side">
+        <nav>
+            <ul>
+                <li><a href="index.html">Playing</a></li>
+                <li></li>
+                <li><a href="playlist.html">Playlists</a></li>
+
+            </ul>
+            <div class="search">
+                <i class="bi bi-search"></i>
+                <input type="text" placeholder="Search Music....">
+            </div>
+
+             <!-- Dark Mode Toggle Button -->
+             <button id="darkModeToggle" class="dark-mode-btn">
+             <i class="bi bi-moon-stars-fill"></i>
+             </button> 
+        </nav>
+
+        <!-- Progress Bar Wrapper -->
+        <div id="progressWrapper" style="display: none;">
+            <div id="progressBar"></div>
+            <span id="progressText">0%</span>
+        </div>
+        
+
+        <div class="content">
+           <img src="img/background ui.jpg" alt="">
+        </div> 
+
+        <div class="popular_song">
+            <div class="h4">
+                <h4 id="nowPlayingTitle">Now Playing</h4>
+                <div id="nowPlayingArtist" class="subtitle"></div> <!-- Artist Name -->
+            </div>
+            <div class="pop_song">
+                <li class="songItem">
+                    <div class="img_play">
+                        <img src="img/playson.jpg" alt="song-thumbnail">
+                        <i id="nowPlayingPlay" class="bi bi-play-circle-fill"></i>
+                    </div>
+                </li>
+    
+                <svg id="svgWave" class="svg-wave" viewBox="0 0 100 20">
+                    <rect width="4" height="10" x="10" y="5"></rect>
+                    <rect width="4" height="15" x="20" y="2.5"></rect>
+                    <rect width="4" height="20" x="30" y="0"></rect>
+                    <rect width="4" height="15" x="40" y="2.5"></rect>
+                    <rect width="4" height="10" x="50" y="5"></rect>
+                </svg>
+            </div>
+
+
+
+            <div class="add-playlist">
+                <h3>My Playlists</h3>
+            
+                <!-- SINGLE .playlist-container FOR ALL ITEMS -->
+                <div class="playlist-container">
+                    <div class="playlistItem">
+                        <img src="img/playlist.jpg">
+                        <h5>PlayList Name</h5>
+                        <p>My playlists</p>
+                        <div class="playlist-actions">
+                            <i class="bi bi-play-circle-fill"></i>
+                            <i class="bi bi-x-circle-fill"></i>
+                            <i class="bi bi-plus-circle-fill"></i>
+                        </div>
+                     </div>
+
+
+
+                </div>
+            </div>
+            
+
+        </div>
+            
+
+
+           </div>
+
+        </div>
+    </div>
+
+ <!----------------------------Play/Pause area-------------------------->
+    
+    <div class="master_play" >
+        <img src="img/vibes stream.png" alt="">
+        <h5> <br>
+            <div class="subtitle"></div>
+        </h5>
+        <div class="icon">
+            <i id="prevBtn" class="bi bi-skip-start-fill"></i> 
+            <i id="masterPlay" class="bi bi-play-fill"></i>
+            <i id="nextBtn" class="bi bi-skip-end-fill"></i> 
+            <i id="stop"  class="bi bi-stop-fill"></i>
+        </div>
+        
+        <span id="currentStart">0:00</span>
+        <div class="bar">
+            <input type="range" id="seek" min="0" max="100">
+        </div>
+        <span id="currentEnd">0:00</span>
+
+        <div class="vol">
+            <i class="bi bi-volume-down-fill"></i>
+            <input type="range" id="vol" min="0" max="100">
+        </div>
+    </div>
+
+
+
+</header>
+
+
+
+
+   <script src="script.js"></script>
+</body>
+</html>
